@@ -7,7 +7,14 @@ let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.querySelector("#cards-el");
 
+let player = {
+  name: 'Rashad',
+  chips: 145
+}
 // Create a function, getRandomCard(), that always returns the number 5
+let playerEl = document.getElementById('player-el')
+playerEl.textContent = player.name + ": $" + player.chips
+
 
 function startGame() {
     isAlive = true;
@@ -45,9 +52,12 @@ for (let i = 0 ; i < cards.length; i++){
   sumEl.textContent = "Sum: " + sum;
 }
 function newCard() {
-  let card = getRandomCard();
-  sum += card;
-  cards.push(card);
-  console.log(cards);
-  renderGame();
+    if (isAlive === true && hasBlackJack=== false){
+    let card = getRandomCard();
+    sum += card;
+    cards.push(card);
+    console.log(cards);
+    renderGame();
+    }
+  
 }
